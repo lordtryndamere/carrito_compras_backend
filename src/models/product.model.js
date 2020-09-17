@@ -16,7 +16,7 @@ module.exports = (sequelize,Sequelize)=>{
         },
     
         image:{
-            type:Sequelize.BLOB("long"),
+            type:Sequelize.STRING,
             allowNull:true
         },
       

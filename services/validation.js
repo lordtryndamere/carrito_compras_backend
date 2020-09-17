@@ -17,7 +17,6 @@ const Productvalidation = data =>{
         name:Joi.string().required(),
         description:Joi.string().required(),
         price:Joi.number().required(),
-        image:Joi.string().required(),
         categoria:Joi.number().required()
     }
     return Joi.validate(data,schema)

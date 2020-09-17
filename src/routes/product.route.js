@@ -5,9 +5,9 @@ var multipartmiddleware = multipart({uploadDir:'./uploads'});
 
 router.post('/',productController.createProduct);
 router.get('/',productController.getProducts);
-router.get('/id',productController.getProduct);
-router.get('/by/categoria',productController.getProductsByCategory);
-router.put('/',multipartmiddleware,productController.uploadImage);
+router.get('/:id',productController.getProduct);
+router.get('/by/:categoria',productController.getProductsByCategory);
+router.put('/:id',multipartmiddleware,productController.uploadImage);
 router.get('/getimage/image',productController.getFile);
 
 

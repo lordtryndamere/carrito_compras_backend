@@ -89,27 +89,29 @@ const productController = {
         let file_name= filesplit[1];
         let exSplit = file_name.split('\.');
         let fileExt = exSplit[1];
-        if (fileExt  != 'jpg'||fileExt !=  'gif' || fileExt !=  "png" || fileExt !="jpeg"){
+        if (fileExt   == 'jpg'||fileExt ==  'gif' || fileExt ==  "png" || fileExt == "jpeg"){
+            try {
+                const  updatedProductImage = await    Product.update({image:file_name},{
+                        where:{id:id}
+                    })
+                    if(updatedProductImage ==1 ) return res.status(200).send("Imagen subida")
+                    return res
+                .status(404)
+                .send(
+                  `Cannot updated Product with id=${id} .Maybe Product was not found or req.body is empty!`
+                );
+                } catch (error) {
+                    res.status(500).send(error)
+                }         
+        }else{
             fs.unlink(filePath,(err)=>{
                 return res.status(200).send({
                     message:"file extension is invalid"
                 });
             })
         }
-        try {
-        const  updatedProductImage = await    Product.update({image:file_name},{
-                where:{id:id}
-            })
-            if(updatedProductImage ==1 ) return res.status(200).send("Imagen subida")
-            return res
-        .status(404)
-        .send(
-          `Cannot updated Product with id=${id} .Maybe Product was not found or req.body is empty!`
-        );
-        } catch (error) {
-            res.status(500).send(error)
-        }
-        
+   
+    
 
     },
     getFile(req,res){
