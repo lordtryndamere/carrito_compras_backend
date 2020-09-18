@@ -88,9 +88,10 @@ const productController = {
         const filePath = req.files.image.path;
   
         const filesplit = filePath.split('\\');
+        console.log(filesplit);
       
-        const file_name= filesplit;
-        console.log(file_name);
+        const file_name= filesplit[1];
+   
       
         const exSplit = file_name.split('\.');
   
