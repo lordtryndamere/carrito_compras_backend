@@ -90,7 +90,7 @@ const productController = {
         const filesplit = filePath.split('\\');
 
         const palabra = filesplit[0].replace(regex,'')
-      console.log(palabra);
+  
         //const file_name= filesplit[1];
    
       
@@ -100,7 +100,7 @@ const productController = {
 
         if (fileExt   == 'jpg'||fileExt ==  'gif' || fileExt ==  "png" || fileExt == "jpeg"){
             try {
-                const  updatedProductImage = await    Product.update({image:file_name},{
+                const  updatedProductImage = await    Product.update({image:palabra},{
                         where:{id:id}
                     })
                     if(updatedProductImage ==1 ) return res.status(200).send("Imagen subida")
