@@ -16,7 +16,7 @@ module.exports = (sequelize,Sequelize)=>{
         },
     
         image:{
-            type:Sequelize.STRING,
+            type:Sequelize.STRINg,
             allowNull:true
         },
       
