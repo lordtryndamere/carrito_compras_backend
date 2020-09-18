@@ -2,6 +2,7 @@ const db = require('../models');
 const Category = db.category;
 
 const {categoryvalidation} = require('../../services/validation');
+const { getProductsByCategory } = require('./product.controller');
 const CategoryController = {
     async  createCategory(req,res){
         const item = req.body
@@ -28,7 +29,20 @@ const CategoryController = {
       } catch (error) {
           res.status(500).send(error)
       }
+    },
+    async getCatories(req,res){
+        try {
+            const categories = await  Category.findAll({
+              
+              })
+  
+              if(categories.length>=1) return res.status(200).send(categories)
+              return res.status(404).send("categories no encontradas")
+          } catch (error) {
+              res.status(500).send("Error "+error)
+          }
     }
+
 
 }
 
