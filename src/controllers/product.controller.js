@@ -82,18 +82,19 @@ const productController = {
 
     },
     async  uploadImage(req,res){
-       
+       const regex = "Uploads/"
         const id = req.params.id
         if(!req.files.image) return res.status(400).send("Debe escoger una imagen");
         const filePath = req.files.image.path;
   
         const filesplit = filePath.split('\\');
-        console.log(filesplit);
-      
-        const file_name= filesplit[1];
+
+        const palabra = filesplit.replaace(regex,'')
+      console.log(palabra);
+        //const file_name= filesplit[1];
    
       
-        const exSplit = file_name.split('\.');
+        const exSplit = palabra.split('\.');
   
         const fileExt = exSplit[1];
 
