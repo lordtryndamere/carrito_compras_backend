@@ -82,7 +82,8 @@ const productController = {
 
     },
     async  uploadImage(req,res){
-    const id = req.params.id
+    try {
+        const id = req.params.id
         if(!req.files) return res.status(400).send("Debe escoger una imagen");
         let filePath = req.files.image.path;
         let filesplit = filePath.split('\\')
@@ -110,6 +111,10 @@ const productController = {
                 });
             })
         }
+    } catch (error) {
+        res.status(error)
+    }
+  
    
     
 
