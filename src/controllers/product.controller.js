@@ -89,7 +89,7 @@ const productController = {
   
         const filesplit = filePath.split('\\');
 
-        const palabra = filesplit[0].replace(regex,'')
+        const palabra =   filesplit[1] ==undefined ?   filesplit[0].replace(regex,'') : filesplit[1]
   
         //const file_name= filesplit[1];
    
