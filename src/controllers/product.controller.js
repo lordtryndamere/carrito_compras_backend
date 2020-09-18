@@ -89,7 +89,7 @@ const productController = {
   
         const filesplit = filePath.split('\\');
       
-        const file_name= filesplit[1];
+        const file_name= filesplit;
         console.log(file_name);
       
         const exSplit = file_name.split('\.');
