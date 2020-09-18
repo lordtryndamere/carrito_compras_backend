@@ -86,10 +86,15 @@ const productController = {
         const id = req.params.id
         if(!req.files.image ) return res.status(400).send("Debe escoger una imagen");
         let filePath = req.files.image.path;
+        console.log(filePath);
         let filesplit = filePath.split('\\');
+        console.log(filesplit);
         let file_name= filesplit[1];
+        console.log(file_name);
         let exSplit = file_name.split('\.');
+        console.log(exSplit);
         let fileExt = exSplit[1];
+        console.log(fileExt);
         if (fileExt   == 'jpg'||fileExt ==  'gif' || fileExt ==  "png" || fileExt == "jpeg"){
             try {
                 const  updatedProductImage = await    Product.update({image:file_name},{
