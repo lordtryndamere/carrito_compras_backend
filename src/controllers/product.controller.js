@@ -114,10 +114,6 @@ const productController = {
     } catch (error) {
         res.status(error)
     }
-  
-   
-    
-
     },
     getFile(req,res){
         let file = req.params.image;

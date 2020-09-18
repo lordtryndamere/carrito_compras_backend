@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const helmet = require('helmet');
 const cors  = require('cors')
 const PORT = process.env.PORT || 3000
-
+global.__basedir = __dirname;
 dotenv.config();
 
 //Load files routes
