@@ -84,17 +84,18 @@ const productController = {
     async  uploadImage(req,res){
        
         const id = req.params.id
-        if(!req.files.image ) return res.status(400).send("Debe escoger una imagen");
+        if(!req.files.image) return res.status(400).send("Debe escoger una imagen");
         const filePath = req.files.image.path;
-        console.log(filePath);
+  
         const filesplit = filePath.split('\\');
-        console.log(filesplit);
+      
         const file_name= filesplit[1];
         console.log(file_name);
+      
         const exSplit = file_name.split('\.');
-        console.log(exSplit);
+  
         const fileExt = exSplit[1];
-        console.log(fileExt);
+
         if (fileExt   == 'jpg'||fileExt ==  'gif' || fileExt ==  "png" || fileExt == "jpeg"){
             try {
                 const  updatedProductImage = await    Product.update({image:file_name},{
