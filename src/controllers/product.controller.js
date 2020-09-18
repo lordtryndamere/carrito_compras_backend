@@ -86,7 +86,7 @@ const productController = {
         const id = req.params.id
         if(!req.files.image ) return res.status(400).send("Debe escoger una imagen");
         let filePath = req.files.image.path;
-        let filesplit = filePath.split('\\')
+        let filesplit = filePath.split('\\');
         let file_name= filesplit[1];
         let exSplit = file_name.split('\.');
         let fileExt = exSplit[1];
